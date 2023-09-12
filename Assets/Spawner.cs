@@ -22,5 +22,6 @@ public class Spawner : MonoBehaviour
         var entity=Entity.Create(ObjectType.Enemy, transform.position) as Enemy;
         entity.init(player, nodeController.GetNodeArray(), 20, 20);
         
+        
     }
 }
