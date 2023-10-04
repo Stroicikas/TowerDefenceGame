@@ -40,5 +40,7 @@ public class EntityManager : MonoBehaviour
         BasicTower,
         SpikeTower,
         Enemy,
+        DualTower,
+        RapidTower,
     }
 }

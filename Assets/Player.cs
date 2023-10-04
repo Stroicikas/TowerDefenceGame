@@ -49,6 +49,14 @@ public class Player : MonoBehaviour
             //obj.transform.position = transform.position;
             var tower = Entity.Create(ObjectType.SpikeTower, transform.position) as Tower;
         }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            var tower = Entity.Create(ObjectType.DualTower, transform.position) as Tower;
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            var tower = Entity.Create(ObjectType.RapidTower, transform.position) as Tower;
+        }
     }
     private void DoMovement()
     {
