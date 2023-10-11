@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 5966266715493974037}
   - component: {fileID: 2796168177387601741}
   - component: {fileID: 3526893841349981344}
-  - component: {fileID: 7442270528502550574}
-  - component: {fileID: -5277925505392212171}
+  - component: {fileID: -6777154839148942137}
   m_Layer: 0
   m_Name: RapidTower
   m_TagString: Untagged
@@ -28,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5548390937500316973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.178776, y: -11.548462, z: -3.0968552}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -85,20 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7442270528502550574
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5548390937500316973}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-5277925505392212171
+--- !u!114 &-6777154839148942137
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,14 +96,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68dcd1d62ea1be94e9546c3663ce1ac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 5
+  Type: 0
   Id: 0
-  ProjectilePrefab: {fileID: 5309418509159992030, guid: 8a717aafec059184982335d10d0f1502,
-    type: 3}
-  range: 5
-  cooldown: 0.05
-  proj_speed: 40
+  ProjectilePrefab: {fileID: 0}
+  range: 10
+  cooldown: 0.1
+  proj_speed: 30
   proj_damage: 20
   proj_amount: 1
-  proj_lifetime: 1
+  proj_lifetime: 15
   proj_angleinc: 45

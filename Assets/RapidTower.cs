@@ -1,34 +1,47 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.UIElements;
 using static EntityManager;
 
-public class Tower : Entity
+public class RapidTower : Entity
 {
-    [SerializeField] private Projectile ProjectilePrefab;
-    [SerializeField] private float range = 5f;
-    [SerializeField] private float cooldown = 0.5f;
-    [SerializeField] private int proj_speed = 15; 
-    [SerializeField] private int proj_damage = 20;
-    [SerializeField] private int proj_amount = 1;
-    [SerializeField] private float proj_lifetime = 1f;
-    [SerializeField] private float proj_angleinc = 45f;
-
-    private void shoot()
+    [SerializeField] public Projectile ProjectilePrefab;
+    [SerializeField] public float range = 10f;
+    [SerializeField] public float cooldown = 0.1f;
+    [SerializeField] public int proj_speed = 15; 
+    [SerializeField] public int proj_damage = 20;
+    [SerializeField] public int proj_amount = 1;
+    [SerializeField] public float proj_lifetime = 1f;
+    [SerializeField] public float proj_angleinc = 45f;
+    private void shoot1()
     {
-        cooldown = 0.5f;
-        float arcgap = proj_amount > 1 ? proj_angleinc : 0; // Calculate arcgap
+        cooldown = 0.1f;
         for (int i = 0; i < proj_amount; i++)
         {
-            float calculatedAngle = transform.eulerAngles.y - (arcgap * (proj_amount - 1)) / 2 + i * arcgap;
-
+            //var projectile = Instantiate(ProjectilePrefab, transform);
             var projectile = Entity.Create(ObjectType.Projectile, transform.position) as Projectile;
-            projectile.init(proj_speed, proj_damage, proj_lifetime, Vector3.forward, calculatedAngle);
+            projectile.init(proj_speed, proj_damage, proj_lifetime, Vector3.forward, i * proj_angleinc);
         }
+
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (cooldown <= 0)
+        {
+            shoot1();
+            FindAndShootNearestEnemy();
+        }
+        else cooldown -= Time.deltaTime;
     }
     private void FindAndShootNearestEnemy()
     {
@@ -54,23 +67,7 @@ public class Tower : Entity
             Vector3 direction = (nearestEnemy.transform.position - transform.position).normalized;
             float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, angle, 0);
-            shoot();
+            shoot1();
         }
-    }
-    // Start is called before the first frame updateS
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(cooldown <= 0) 
-        {
-            shoot();
-            FindAndShootNearestEnemy();
-        }
-        else cooldown -= Time.deltaTime;
     }
 }

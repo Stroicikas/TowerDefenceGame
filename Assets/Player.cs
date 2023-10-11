@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            var tower = Entity.Create(ObjectType.RapidTower, transform.position) as Tower;
+            var RapidTower = Entity.Create(ObjectType.RapidTower, transform.position) as RapidTower;
         }
     }
     private void DoMovement()
