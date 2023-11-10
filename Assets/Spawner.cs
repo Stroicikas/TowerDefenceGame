@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private Enemy enemyPrefab;
     [SerializeField] private Player player;
     [SerializeField] private NodeController nodeController;
+    [SerializeField] private EnemyWaves waves;
     // Start is called before the first frame update
     void FixedUpdate()
     {

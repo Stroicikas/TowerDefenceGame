@@ -19,6 +19,6 @@ public class HPBar : MonoBehaviour
     }
     public void setup(int maxhp)
     {
-        _maxhp = _hp = maxhp; //-magic (Evil)
+        _maxhp = _hp = maxhp;
     }
 }
