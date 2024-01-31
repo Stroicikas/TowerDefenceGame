@@ -64,9 +64,4 @@ public class EnemyWaves : MonoBehaviour
             // All waves have been completed
         }
     }
-
-    void Update()
-    {
-        // Your update logic here
-    }
 }
